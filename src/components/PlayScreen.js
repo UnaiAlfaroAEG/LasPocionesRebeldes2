@@ -10,7 +10,7 @@ import cube6 from "../assets/cube/cube6.png"
 import ResultScreen from "./ResultScreen";
 
 
-function PlayScreen ({healthy,poison}) {
+function PlayScreen ({healthy,poison,allPotions}) {
 
     const [winnerData, setWinnerData] = useState()
     const [viewResultScreen,setViewResultScreen] = useState(false)
@@ -31,7 +31,7 @@ function PlayScreen ({healthy,poison}) {
     }
 
     return(
-        viewResultScreen?(<ResultScreen winnerResult={winnerData} healthyPotions={healthy} poisonPotions={poison}/>):
+        viewResultScreen?(<ResultScreen winnerResult={winnerData} healthyPotions={healthy} poisonPotions={poison} allPotions={allPotions}/>):
         <>
                 <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around',marginTop:'200px', marginBottom:'20px'}}>
                   <div>
