@@ -11,20 +11,49 @@ import nocurative from '../assets/potions/nocurative.png'
 import StartScreen from "./StartScreen";
 
 
-function ResultScreen ({winnerResult}){
+function ResultScreen ({winnerResult,allPotions}){
 
  const [viewPlayScreen, setViewPlayScreen] = useState(false)
+ const [healthyPotion,setHealthyPotion] = useState()
+ const [poisonPotion,setPoisonPotion] = useState()
+
+
+ const distributionHealthyPoisonPotions = (poisons) =>{
+    let healthyPotions = []
+    let poisonPotions = []
+
+    poisons.map((item) => {
+        if(item.curative === true){
+            healthyPotions.push(item)
+        }else{
+            poisonPotions.push(item)
+        }
+    })
+
+
+    let healthyPotion = healthyPotions[Math.floor(Math.random() * healthyPotions.length)];
+    let poisonPotion = poisonPotions[Math.floor(Math.random() * poisonPotions.length)];
+    
+    poisonPotion.cube = Math.floor(Math.random()*(6-1+1)+1);
+    healthyPotion.cube = Math.floor(Math.random()*(6-1+1)+1);
+
+
+    setPoisonPotion(poisonPotion)
+    setHealthyPotion(healthyPotion)
+
+}
 
     console.log(winnerResult)
 
     function handleButtonPlayAgain(){
+        distributionHealthyPoisonPotions(allPotions)
         setViewPlayScreen(true)
     }
 
 
     return(
         <>
-        {viewPlayScreen ? (<StartScreen />) :(
+        {viewPlayScreen ? (<PlayScreen healthy={healthyPotion} poison={poisonPotion} allPotions={allPotions}/>) :(
             <div>
                 <div>
                     <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around',marginTop:'200px', marginBottom:'20px'}}>

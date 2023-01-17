@@ -9,6 +9,7 @@ function StartScreen(){
     const [viewPlayScreen, setViewPlayScreen] = useState(false)
     const [healthyPotion,setHealthyPotion] = useState()
     const [poisonPotion,setPoisonPotion] = useState()
+    const [allPotions, setAllPotions] = useState()
 
 
     const distributionHealthyPoisonPotions = (poisons) =>{
@@ -42,6 +43,7 @@ function StartScreen(){
             url: `https://gist.githubusercontent.com/Oskar-Dam/ad2c96601e79ad108227bc25f90e4e53/raw/25dc0198b2aaa85f0b5583978a0c6772cab63aba/Potions.js`,
           })
           .then(response => {
+            setAllPotions(response.data)
             distributionHealthyPoisonPotions(response.data)
             setViewPlayScreen(true)
           })
@@ -52,7 +54,7 @@ function StartScreen(){
 
     return(
 
-        viewPlayScreen ? (<PlayScreen healthy={healthyPotion} poison={poisonPotion}/>): 
+        viewPlayScreen ? (<PlayScreen healthy={healthyPotion} poison={poisonPotion} allPotions={allPotions}/>): 
         (
         <div className="InitialContainer">
             <div className="SecondayContainer">
