@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+.InitialContainer{
+  text-align: center;
+}
+
+.SecondayContainer{
+  margin: auto;
+  margin-top: 20%;
+}
+
+.PrincipalP{
+  font-family: 'Kaushan Script', cursive;
+  font-size: 70px;
+}
 .App {
   text-align: center;
 }
@@ -11,6 +26,24 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.LittleFont{
+  font-family: 'Kaushan Script', cursive;
+  font-size: 30px;
+  border: 3px solid black ;
+  padding: 25px;
+  line-height: 10px;
+  white-space: pre-line;
+}
+
+.PrincipalBoton{
+  width: 450px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: rgb(187, 97, 187);
+  font-size: 50px;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .App-header {
