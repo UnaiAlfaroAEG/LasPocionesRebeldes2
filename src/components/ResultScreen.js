@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import PlayScreen from "./PlayScreen";
 import cube1 from "../assets/cube/cube1.png"
 import cube2 from "../assets/cube/cube2.png"
